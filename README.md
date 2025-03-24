@@ -42,8 +42,8 @@ Ketik
 docker-compose up --build
 ```
 - **Ini akan :**
-Build dan nyalain container frontend (React) di http://localhost:3000.
-Build dan nyalain container backend (Express) di http://localhost:5000, nyambung ke MySQL pake host.docker.internal.
+    - Build dan nyalain container frontend (React) di http://localhost:3000.
+    - Build dan nyalain container backend (Express) di http://localhost:5000, nyambung ke MySQL pake host.docker.internal.
 
 ## 4. Cek Aplikasi 
 - **Frontend: Buka http://localhost:3000 di browser.**
