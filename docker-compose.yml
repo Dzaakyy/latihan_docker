@@ -1,7 +1,7 @@
 version: '3'
 services:
   frontend:
-    image: frontend
+    image: frontend:23.10.0
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -11,9 +11,8 @@ services:
       - ./frontend:/app
     depends_on:
       - backend
-    # container_name: frontend
   backend:
-    image: backend
+    image: backend:23.10.0
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -21,4 +20,3 @@ services:
       - "5000:5000"
     volumes:
       - ./backend:/app
-    # container_name: backend
