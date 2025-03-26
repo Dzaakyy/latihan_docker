@@ -1,7 +1,10 @@
 version: '3'
 services:
   frontend:
-    image: dzakyrahmat/latihan-frontend:23.10.0
+     image: frontend:23.10.0
+     build:
+      - context: ./frontend
+      - dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
@@ -12,7 +15,10 @@ services:
     depends_on:
       - backend
   backend:
-    image: dzakyrahmat/latihan-backend:23.10.0
+    image: backend:23.10.0
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     volumes:

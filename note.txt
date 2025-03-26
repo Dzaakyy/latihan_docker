@@ -1,0 +1,32 @@
+version: '3'
+services:
+  frontend:
+  # Jika ingin menggunakan image dari local 
+    # image: frontend:23.10.0
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+   # Jika ingin menggunakan image dari Docker Hub
+    image: dzakyrahmat/latihan-frontend:23.10.0 # image dari Docker Hub
+    # Jadi jika ingin menggunakan image dari lokal, maka harus menggunakan build yang dimana build ini mengarah ke file 
+    # Dockerfile yang ada di dalam folder yang diarahkan oleh context. Jika ingin menggunakan image dari Docker Hub, maka
+    # harus menggunakan image yang ada di Docker Hub tersebut. Jadi tidak perlu menggunakan build lagi.
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+  backend:
+    image: backend:23.10.0
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
